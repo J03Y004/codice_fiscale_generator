@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Codice Fiscale</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="styles/bulma/css/bulma-rtl.css" type="text/css">
+        <link rel="stylesheet" href="styles/stile.css" type="text/css">
+<meta name="description" content="Applicativo Web per generare il codice fiscale">
+<meta name="author" content="Gioacchino Spinazzola">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="shortcut icon" href="favicon.ico">
+
+    </head>
+    
+    <body>
+        <form style="width: min(700px, 100%)">
+            <h1 class="title is-2 has-text-centered">CALCOLO CODICE FISCALE</h1>
+            	<div class="columns is-multiline is-centered is-vcentered">
+		            <div class="column is-full">
+                    	<div class="box">
+	        		        <input name="name" id="frmNameA" placeholder="Nome" autocomplete="given-name" id="nome" class="input is-link mb-3" required>
+			                <input name="surname" id="frmNameB" placeholder="Cognome" autocomplete="family-name" id="cognome" class="input is-link" required>
+                        </div>
+		            </div>
+            
+        		    <div class="column is-one-third">
+                    	<div class="box">
+	                		<input type="date" class="input is-link" name="dateofbirth" id="dateofbirth" autocomplete="bday" required>
+                        </div>
+		            </div>
+
+        		    <div class="column is-one-third">
+                    	<div class="box">
+	                		<input type="text" class="input is-link" name="birthplace" placeholder="Luogo di nascita" required id="loc" id="autocomplete">
+                        </div>
+		            </div>
+
+        		    <div class="column is-one-third has-text-centered">
+                    	<div class="box">
+            	    		<label for="maschio">Maschio</label>
+			                <input class="radio" type="radio" id="maschio" name="gender" value="M" checked>
+                            <br>
+			                <label for="femmina">Femmina</label>
+			                <input type="radio" id="femmina" name="gender" value="F">
+                        </div>
+        		    </div>
+                    <div class="column is-full">
+                    	<input type="button" class="button is-link is-fullwidth" value="GENERA" id="but" onclick="ShowInput()">
+                    </div>
+	                
+	            </div>
+         
+        </form>
+
+        <p id="display"></p>
+
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="scripts/calcolo_codice_fiscale.js"></script>
+        <script>
+if ('serviceWorker' in navigator)
+  navigator.serviceWorker.register('/codice_fiscale_generator/sw.js');
+</script>
+    </body>
+</html>
